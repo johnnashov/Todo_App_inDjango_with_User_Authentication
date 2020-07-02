@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <style>
+    p, h1{
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .footer{
+      text-align: center;
+    }
+
+    .todoadd{
+      text-align: center;
+    }
+
+    i{
+      font-size: 32px;
+      margin: 10px;
+    }
+    .content{
+      width: 400px;
+      height: 45px;
+      border-radius: 5px;
+      margin: 8px;
+    }
+    label{
+      font-size: 32px;
+    }
+    .priority{
+      font-size: 32px;
+    }
+    .btn-primary{
+      width: 120px;
+      height: 60px;
+      font-size: 32px;
+    }
+    ul .item_view{
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: bold;
+      margin-right: 3px;
+      font-size: 32px;
+    }
+    .fa-exclamation-triangle{
+      margin-left: 30px;
+      margin-right: none;
+      font-size: 20px;
+    }
+    .priority_view{
+      border-style: solid;
+      border-radius: 5px;
+      margin-right: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      padding:3px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li><a class="navbar-brand" href="/">Home</a></li>
+        <li><a class="navbar-link" href="/admin/">Admin</a></li>
+
+        {% if request.user.is_anonymous %}
+        
+        <li><a class="navbar-link" href="{% url 'register' %}">Register</a></li>
+        
+        <li><a  class="navbar" href="{% url 'login' %}">Login</a></li>
+       
+        {% else %}
+        <li><a class="hello-msg">Hello, {{request.user}}</a></li>
+        <li><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></li>
+        {% endif %}
+        
+       
+      </ul>
+      
+      
+      
+    </div>
+  </nav>
+  
+  <div class="container">
+    {% block body_block %}
+    {% endblock %}
+  </div>
+  <hr>
+  <div class="container">
+    <div class="footer">
+      <p> TodoApp with Django </p>
+            
+            <a href="https://www.facebook.com/Rajkumarov" target="_blank"><i class="fab fa-facebook-square icon-5x"></i></a>
+            &nbsp;
+            <a href="https://github.com/santoshrajkumar" target="_blank"><i class="fab fa-github-square"></i></a>
+            &nbsp;
+            <a href="https://www.linkedin.com/in/santosh-mohan-rajkumar-101180a3/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </div>
+	
+  
+</body>
+</html>

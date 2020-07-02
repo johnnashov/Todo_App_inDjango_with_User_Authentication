@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+<title>ToDo App</title>
+
+{% block body_block %}
+
+<div class="jumbotron">
+  <h1>ToDo App</h1>
+  <div class="list-group">
+
+    <ul>
+      {% for item in todoitems %}
+      <h3><li class="list-group-item" > <i class="fas fa-arrow-circle-right"></i> <span class="item_view">{{ item.content }} </span> 
+        <i class="fas fa-exclamation-triangle"></i> <span class="priority_view"> {{ item.priority }} </span> 
+        <form action="/deleteTodo/{{item.id}}/" style = "display: inline;" method="post">
+          {% csrf_token %}
+        <input type="submit" value="Delete" class= "btn">
+        </form>
+      </li></h3>
+      {% endfor %}
+    </ul>
+
+  </div>
+ 
+
+
+  <div class="container">
+
+    <div class="todoadd">
+
+      <form action="/addTodo/" method="post">
+        {% csrf_token %}
+        <i class="fas fa-calendar-check icon-3x"></i>
+        <input type="text" name = "content" class="content">
+        <label for="priority">Priority:</label>
+        <select type= "text" name="priority" class="priority">
+          <option value="High">High</option>
+          <option value="Moderate">Moderate</option>
+          <option value="Low">Low</option>
+        </select>
+        <br>
+        <input type="submit" value="Add" class="btn btn-primary">
+      </form>
+
+    </div>
+
+    
+
+  </div>
+  
+
+</div>
+
+{% endblock %}
