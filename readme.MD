@@ -8,3 +8,5 @@
 ## User can Read, Write and Delete todo items added only by him / her
 
 ## No user can see any todo item without logging in
+
+## A user can't access todo items of other users
