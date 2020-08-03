@@ -7,7 +7,7 @@ https://smrtodo.herokuapp.com/
 
 ### Uses Django authentication system to log-in users to the system
 
-### User can Read, Write and Delete todo items added only by him / her
+### Read, Write and Delete todo items possible for the tasks belonging to the logged in user only.
 
 ### No user can see any todo item without logging in
 
